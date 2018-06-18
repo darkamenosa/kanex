@@ -1,13 +1,14 @@
 welcome: # this is the #welcome bloc referenced in index.js
-  - typing: true
   - Hé lô gái
   - Gái muốn hỏi gì nè
+  typing: true
+
 goodbye:
   - text: Ok, bye gái
     typing: true
   - Mốt rãnh ghé chơi nha! # if no other properties, you can just send a strings
 
 thien_word:
-  - typing: true
+  typing: true
   - Bầu trời.
   - Cái gì kết quả tự nhiên, sức người không thể làm được gọi là thiên. Như thiên nhiên 天然, thiên sinh 天生, v.v.
