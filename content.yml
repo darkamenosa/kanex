@@ -1,8 +1,7 @@
 welcome: # this is the #welcome bloc referenced in index.js
   - typing: true
-    text: # Picks one randomly
-      - Hé lô gái
-      - Gái muốn hỏi gì nè
+  - Hé lô gái
+  - Gái muốn hỏi gì nè
 goodbye:
   - text: Ok, bye gái
     typing: true
@@ -10,6 +9,5 @@ goodbye:
 
 thien_word:
   - typing: true
-    text:
-      - Bầu trời.
-      - Cái gì kết quả tự nhiên, sức người không thể làm được gọi là thiên. Như thiên nhiên 天然, thiên sinh 天生, v.v.
+  - Bầu trời.
+  - Cái gì kết quả tự nhiên, sức người không thể làm được gọi là thiên. Như thiên nhiên 天然, thiên sinh 天生, v.v.
