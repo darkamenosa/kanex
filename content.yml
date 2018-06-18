@@ -1,5 +1,5 @@
 welcome: # this is the #welcome bloc referenced in index.js
-  - Text: Hé lô gái
+  - text: Hé lô gái
     typing: true
   - Gái muốn hỏi gì nè
 
