@@ -20,6 +20,8 @@
 */
 
 module.exports = function(bp) {
+  bp.middlewares.load()
+
   // Listens for a first message (this is a Regex)
   // GET_STARTED is the first message you get on Facebook Messenger
   bp.hear(/GET_STARTED|hello|hi|test|hey|holla/i, (event, next) => {
@@ -31,9 +33,13 @@ module.exports = function(bp) {
     type: /message|text/i,
     text: /exit|bye|goodbye|quit|done|leave|stop/i
   }, (event, next) => {
-    event.reply('#goodbye', {
-      // You can pass data to the UMM bloc!
-      reason: 'unknown'
-    })
+    event.reply('#goodbye')
   })
+
+  bp.hear({'wit.entities.word[0].value': '天'}, (event, next) => {
+    event.reply('#thien_word')
+  })
+
+  // You need to call this method once you are done implementing the Actions
+  bp.wit.reinitializeClient()
 }
