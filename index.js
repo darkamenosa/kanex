@@ -35,6 +35,9 @@ module.exports = function(bp) {
   })
 
   function handleWordDetection({ key, umm }) {
+    // console.log('key:', key);
+    // console.log('umm:', umm);
+
     // When wit.ai response word == '天'
     bp.hear({'wit.entities.word[0].value': key }, (event, next) => {
       event.reply(`#${umm}`)

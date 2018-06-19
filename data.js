@@ -6,6 +6,10 @@ const data = [
   {
     key: '好',
     umm: 'hao_word',
+  }, 
+  {
+    key: '天',
+    umm: 'thien_word',
   }
 ];
 
