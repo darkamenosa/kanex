@@ -1,3 +1,4 @@
+const { data } = require('./data');
 /*
   CONGRATULATIONS on creating your first Botpress bot!
 
@@ -23,20 +24,26 @@ module.exports = function(bp) {
   
   bp.middlewares.load()
 
-  // Listens for a first message (this is a Regex)
-  // GET_STARTED is the first message you get on Facebook Messenger
+  // When wit.ai response intent == 'greeting'
   bp.hear({'wit.entities.intent[0].value': 'greeting'}, (event, next) => {
     event.reply('#welcome') // See the file `content.yml` to see the block
   })
 
-  // You can also pass a matcher object to better filter events
+  // When wit.ai response intent == 'goodbye'
   bp.hear({'wit.entities.intent[0].value': 'goodbye'}, (event, next) => {
     event.reply('#goodbye')
   })
 
-  bp.hear({'wit.entities.word[0].value': '天'}, (event, next) => {
-    event.reply('#thien_word')
-  })
+  function handleWordDetection({ key, umm }) {
+    // When wit.ai response word == '天'
+    bp.hear({'wit.entities.word[0].value': key }, (event, next) => {
+      event.reply(`#${umm}`)
+    })
+  }
+
+  // Run loop for words
+  data
+    .forEach(handleWordDetection)
 
   // You need to call this method once you are done implementing the Actions
   bp.wit.reinitializeClient()
