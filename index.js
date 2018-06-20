@@ -40,7 +40,7 @@ module.exports = function(bp) {
 
     // When wit.ai response word == '天'
     bp.hear({'wit.entities.word[0].value': key }, (event, next) => {
-      event.reply(`#${umm}`)
+      event.reply(`#${key}`)
     })
   }
 

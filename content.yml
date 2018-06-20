@@ -8,24 +8,31 @@ goodbye:
     typing: true
   - Mốt rãnh ghé chơi nha! # if no other properties, you can just send a strings
 
-thien_word:
-  - text: Bầu trời.
+天:
+  - text: 天 - Thiên
     typing: true
-  - Cái gì kết quả tự nhiên, sức người không thể làm được gọi là thiên. Như thiên nhiên 天然, thiên sinh 天生, v.v.
+  - |
+  Cái gì kết quả tự nhiên, sức người không thể làm được gọi là thiên. Như thiên nhiên 天然, thiên sinh 天生, v.v.
+  Ở trên có chữ Nhất: 一
+  Ở dưới có chữ đại: 大
+  Cách 1 : Dưới là một người đang dang rộng tay ra ( chữ đại大), trên là chữ nhất一, thể hiện một cái gì bao trùm. Gọi là Trời.
+  Cách 2: Ở trên là chữ nhất 一, ở dưới là chữ Đại 大, to nhất quả đất này đúng là chỉ có ông trời, bầu trời
 
-an_word:
+安:
   - text: 安 - AN (Bình An)
     typing: true
-  - 'Ở trên là bộ 宀 miên => mái nhà mái che,'
-  - 'Ở dưới là bộ女 nữ => nữ giới, con gái, đàn bà'
-  - 'Người phụ nữ ở dưới trong nhà thì rất "an" toàn. Ví dụ: 安全 (Ānquán) – An Toàn'
+  - |
+  Ở trên là bộ 宀 miên => mái nhà mái che,
+  Ở dưới là bộ女 nữ => nữ giới, con gái, đàn bà
+  Người phụ nữ ở dưới trong nhà thì rất "an" toàn. Ví dụ: 安全 (Ānquán) – An Toàn
 
-hao_word:
+好:
   - text: 好 - Hảo
     typing: true
-  - 'Bên trái là bộ 女 nghĩa là phụ nữ, người mẹ'
-  - 'Bên phải là chữ Tử, nghĩa là đứa con, trẻ con'
-  - 'Mẹ đứng cạnh con được hiểu là mẹ tròn con vuông. Đây là điều tuyệt vời nhất và tốt đẹp nhất. Hình ảnh này được dùng làm từ HẢO với nghĩa tốt đẹp.'
+  - |
+  Bên trái là bộ 女 nghĩa là phụ nữ, người mẹ
+  Bên phải là chữ Tử, nghĩa là đứa con, trẻ con
+  Mẹ đứng cạnh con được hiểu là mẹ tròn con vuông. Đây là điều tuyệt vời nhất và tốt đẹp nhất. Hình ảnh này được dùng làm từ HẢO với nghĩa tốt đẹp.
 
 
 
