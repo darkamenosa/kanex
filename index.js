@@ -1,4 +1,4 @@
-const { data } = require('./data');
+const { data } = require('./data')
 /*
   CONGRATULATIONS on creating your first Botpress bot!
 
@@ -21,33 +21,47 @@ const { data } = require('./data');
 */
 
 module.exports = function(bp) {
-  
   bp.middlewares.load()
 
-  // When wit.ai response intent == 'greeting'
-  bp.hear({'wit.entities.intent[0].value': 'greeting'}, (event, next) => {
-    event.reply('#welcome') // See the file `content.yml` to see the block
-  })
+  // // When wit.ai response intent == 'greeting'
+  // bp.hear({'wit.entities.intent[0].value': 'greeting'}, (event, next) => {
+  //   event.reply('#welcome') // See the file `content.yml` to see the block
+  // })
 
-  // When wit.ai response intent == 'goodbye'
-  bp.hear({'wit.entities.intent[0].value': 'goodbye'}, (event, next) => {
-    event.reply('#goodbye')
-  })
+  // // When wit.ai response intent == 'goodbye'
+  // bp.hear({'wit.entities.intent[0].value': 'goodbye'}, (event, next) => {
+  //   event.reply('#goodbye')
+  // })
 
-  function handleWordDetection({ key, umm }) {
-    // console.log('key:', key);
-    // console.log('umm:', umm);
+  // function handleWordDetection({ key, umm }) {
+  //   bp.hear({'wit.entities.word[0].value': key }, (event, next) => {
+  //     event.reply(`#${key}`)
+  //   })
+  // }
 
-    // When wit.ai response word == '天'
-    bp.hear({'wit.entities.word[0].value': key }, (event, next) => {
-      event.reply(`#${key}`)
-    })
-  }
+  // // Run loop for words
+  // data
+  //   .forEach(handleWordDetection)
 
-  // Run loop for words
-  data
-    .forEach(handleWordDetection)
+  // // You need to call this method once you are done implementing the Actions
+  // bp.wit.reinitializeClient()
 
-  // You need to call this method once you are done implementing the Actions
-  bp.wit.reinitializeClient()
+  bp.hear(
+    {
+      platform: 'facebook',
+      type: 'message',
+      text: /.+/i
+    },
+    (event, next) => {
+      const id = event.user.id
+      const last_name = event.user.last_name
+      const first_name = event.user.first_name
+      console.log(event)
+
+      bp.messenger.sendText(
+        id,
+        "Sorry, I only answer to 'hello world'..."
+      )
+    }
+  )
 }
