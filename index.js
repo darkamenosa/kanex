@@ -57,7 +57,7 @@ module.exports = function(bp) {
     {
       platform: 'facebook',
       type: 'message',
-       text: /.+/i
+      text: /.+/i
     },
     (event, next) => {
       const id = event.user.id
@@ -70,10 +70,17 @@ module.exports = function(bp) {
 
       if (nameContain('leya') || nameContain('tuyển')) {
         console.log('Special conversation')
-        bp.messenger.sendText(id, extractSupplierDescription(text))
+        const response = extractSupplierDescription(text); 
+        if (response) {
+          bp.messenger.sendText(id, response)
+        }
+
       } else {
         console.log('Normal conversation')
-        bp.messenger.sendText(id, extractCustomerDescription(text))
+        const response = extractCustomerDescription(text); 
+        if (response) {
+          bp.messenger.sendText(id, response);
+        }
       }
     }
   )
