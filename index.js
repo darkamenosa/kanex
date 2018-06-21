@@ -63,12 +63,19 @@ module.exports = function(bp) {
       const id = event.user.id
       const name = event.user.first_name + ' ' + event.user.last_name
       const text = event.text
-
       const nameContain = contain(name)
 
+      console.log('User: ', name)
+      console.log('text: ', text)
+
       if (nameContain('leya') || nameContain('tuyển')) {
+        console.log('Special conversation')
+        bp.messenger.sendText(id, 'Tổng đơn:')
+        bp.messenger.sendText(id, extractCustomerDescription(text))
+        bp.messenger.sendText(id, '__________________________\nGửi út Yến')
         bp.messenger.sendText(id, extractSupplierDescription(text))
       } else {
+        console.log('Normal conversation')
         bp.messenger.sendText(id, extractCustomerDescription(text))
       }
     }
