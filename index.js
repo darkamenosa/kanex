@@ -70,10 +70,7 @@ module.exports = function(bp) {
 
       if (nameContain('leya') || nameContain('tuyển')) {
         console.log('Special conversation')
-        bp.messenger.sendText(id, 'Tổng đơn:')
-        bp.messenger.sendText(id, extractCustomerDescription(text))
-        bp.messenger.sendText(id, '__________________________\nGửi út Yến')
-        bp.messenger.sendText(id, extractSupplierDescription(text))
+        await bp.messenger.sendText(id, extractSupplierDescription(text))
       } else {
         console.log('Normal conversation')
         bp.messenger.sendText(id, extractCustomerDescription(text))
