@@ -1,4 +1,9 @@
-const { data } = require('./data')
+// const { data } = require('./data')
+const {
+  extractCustomerDescription,
+  extractSupplierDescription
+} = require('btprilib')
+
 /*
   CONGRATULATIONS on creating your first Botpress bot!
 
@@ -19,6 +24,8 @@ const { data } = require('./data')
   Documentation: https://botpress.io/docs
   Our Slack Community: https://slack.botpress.io
 */
+
+const contain = text => word => text.toLowerCase().indexOf(word) !== -1
 
 module.exports = function(bp) {
   bp.middlewares.load()
@@ -50,18 +57,20 @@ module.exports = function(bp) {
     {
       platform: 'facebook',
       type: 'message',
-      text: /.+/i
+      text: /tron|trộn|me|tắc|tac|tat|sa tế|sa te|ot|sate|bơ|tỏi|toi|deo cay|deo me|deo tom|muoi tôm|muoi/i
     },
     (event, next) => {
       const id = event.user.id
-      const last_name = event.user.last_name
-      const first_name = event.user.first_name
-      console.log(event)
+      const name = event.user.first_name + ' ' + event.user.last_name
+      const text = event.text
 
-      bp.messenger.sendText(
-        id,
-        "Sorry, I only answer to 'hello world'..."
-      )
+      const nameContain = contain(name)
+
+      if (nameContain('leya') || nameContain('tuyển')) {
+        bp.messenger.sendText(id, extractSupplierDescription(text))
+      } else {
+        bp.messenger.sendText(id, extractCustomerDescription(text))
+      }
     }
   )
 }
