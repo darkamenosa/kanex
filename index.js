@@ -70,16 +70,16 @@ module.exports = function(bp) {
 
       if (nameContain('leya') || nameContain('tuyển')) {
         const response = extractSupplierDescription(text)
-        await bp.messenger.sendText(id, 'Tin nhắn cho Út Yến')
+        bp.messenger.sendText(id, 'Tin nhắn cho Út Yến')
         if (response) {
-          await bp.messenger.sendText(id, response)
+          bp.messenger.sendText(id, response)
         }
       }
 
       const response = extractCustomerDescription(text)
-      await bp.messenger.sendText(id, 'Tin nhắn cho khách')
+      bp.messenger.sendText(id, 'Tin nhắn cho khách')
       if (response) {
-        await bp.messenger.sendText(id, response)
+        bp.messenger.sendText(id, response)
       }
     }
   )
