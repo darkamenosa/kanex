@@ -69,18 +69,17 @@ module.exports = function(bp) {
       console.log('text: ', text)
 
       if (nameContain('leya') || nameContain('tuyển')) {
-        console.log('Special conversation')
-        const response = extractSupplierDescription(text); 
+        const response = extractSupplierDescription(text)
+        await bp.messenger.sendText(id, 'Tin nhắn cho Út Yến')
         if (response) {
-          bp.messenger.sendText(id, response)
+          await bp.messenger.sendText(id, response)
         }
+      }
 
-      } else {
-        console.log('Normal conversation')
-        const response = extractCustomerDescription(text); 
-        if (response) {
-          bp.messenger.sendText(id, response);
-        }
+      const response = extractCustomerDescription(text)
+      await bp.messenger.sendText(id, 'Tin nhắn cho khách')
+      if (response) {
+        await bp.messenger.sendText(id, response)
       }
     }
   )
