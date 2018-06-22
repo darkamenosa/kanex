@@ -4,6 +4,7 @@
   "description": "test botpress",
   "main": "index.js",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "botpress": "1.x",
     "botpress-messenger": "^2.2.11",
     "botpress-web": "1.x",

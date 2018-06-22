@@ -1,4 +1,5 @@
 // const { data } = require('./data')
+const Promise = require('bluebird')
 const {
   extractCustomerDescription,
   extractSupplierDescription
@@ -70,17 +71,38 @@ module.exports = function(bp) {
 
       if (nameContain('leya') || nameContain('tuyển')) {
         const response = extractSupplierDescription(text)
-        bp.messenger.sendText(id, 'Tin nhắn cho Út Yến')
         if (response) {
-          bp.messenger.sendText(id, response)
+          Promise.resolve()
+            .then(() => {
+              bp.messenger.sendText(id, 'Tin nhắn cho Út Yến')
+              return Promise.delay(500)
+            })
+            .then(() => {
+              bp.messenger.sendText(id, response)
+              return Promise.delay(1000)
+            })
+            .then(() => {
+              bp.messenger.sendText(id, 'Tin nhắn cho khách')
+              return Promise.delay(500)
+            })
+            .then(() => {
+              bp.messenger.sendText(id, extractCustomerDescription(text))
+            })
+        }
+      } else {
+        const response = extractCustomerDescription(text)
+        if (response) {
+          Promise.resolve()
+            .then(() => {
+              bp.messenger.sendText(id, 'Tin nhắn cho khách')
+              return Promise.delay(500)
+            })
+            .then(() => {
+              bp.messenger.sendText(id, response)
+            })
         }
       }
 
-      const response = extractCustomerDescription(text)
-      bp.messenger.sendText(id, 'Tin nhắn cho khách')
-      if (response) {
-        bp.messenger.sendText(id, response)
-      }
     }
   )
 }
